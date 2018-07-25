@@ -1,5 +1,6 @@
 // Generated automatically by Perfect Assistant Application
 // Date: 2017-09-20 19:30:47 +0000
+// swift package generate-xcodeproj
 import PackageDescription
 let package = Package(
 	name: "PerfectTemplate",
