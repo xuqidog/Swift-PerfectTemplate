@@ -52,14 +52,19 @@ func insert(request: HTTPRequest, response: HTTPResponse) {
 //  get
 func selectOne(request: HTTPRequest, response: HTTPResponse) {
     
-    let id = request.params(named: "id")[0]
-    let value = request.params(named: "value")[0]
-    print(id, value)
+//    let id = request.params(named: "id")[0]
+//    let value = request.params(named: "value")[0]
+//    print(id, value)
+//
+//    let queryParams = request.queryParams
+//    for i in 0...queryParams.count - 1{
+//        let partArr = queryParams[i]
+//        print(partArr.0, partArr.1)
+//    }
     
-    let queryParams = request.queryParams
-    for i in 0...queryParams.count - 1{
-        let partArr = queryParams[i]
-        print(partArr.0, partArr.1)
-    }
- 
+    let sql = "SELECT * FROM level"
+    let result = DataBaseManager().executeGetSql(sql: sql)
+    let jsonString = baseResponseBodyJSONData(status: 200, message: "成功", data: result)
+    response.setBody(string: jsonString)
+    response.completed()
 }
